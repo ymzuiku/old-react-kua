@@ -5,14 +5,17 @@
 kua是一个基于react的**跨平台集成方案**, 思路是让移动端和pc端使用同一套代码, 适配同样的设计.这一切都是基于web.
 因为相信Web是最终跨平台解决方案.
 
+
 # Install
 ```
 npm i -g react-kua-cli
+kua -install
 ```
+
 # Create project
 ```
 mkdir projectName & cd projectName
-npm init
+kua init
 ```
 
 # Use
