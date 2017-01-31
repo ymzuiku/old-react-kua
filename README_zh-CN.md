@@ -6,10 +6,22 @@
 kua是一个基于react的跨平台**集成方案**, 思路是让移动端和pc端使用同一套代码, 适配同样的设计.这一切都是基于web.
 因为相信Web是最终跨平台解决方案.
 
-# 安装
+# Install
 ```
-$ npm install --save react-kua
+npm i -g react-kua-cli
 ```
+# Create project
+```
+mkdir projectName & cd projectName
+npm init
+```
+
+# Use
+```
+kua web
+```
+
+![](markdownImage/2017-01-31-17-02-39.png)
 
 # 用到的包
 - 语言使用typescript
@@ -20,7 +32,7 @@ $ npm install --save react-kua
 - 路由使用react-router
 - 动画使用react-motion
 
-# 关于react-ymui-kit
+# 关于react-ymui-kit(还未完善,填坑中)
 kua提供一套UI组件, 使用此组件达到跨平台的目的
 react-ymui-kit设计理念分为三个层级:
 
