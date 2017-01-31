@@ -41,3 +41,13 @@ design层可以有多个分支,根据不同的项目,业务的需要使用不同
 
 # 关于tool
 tool是kua提供一系列糖果类小工具
+
+# 为什么用TypeScript?
+有了类型检测, 我们能够更加安全,快速的进行JavaScript开发.
+
+特别是配合VScode, 如图:
+
+- 如图, 识别Html css
+![如图, 识别Html css](markdownImage/2017-01-31-16-20-31.png)
+- react的箭头函数中识别Props
+![react的标签中识别Props](markdownImage/2017-01-31-16-45-58.png)

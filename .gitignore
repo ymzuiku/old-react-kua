@@ -5,3 +5,4 @@
 /tests/*
 /build/*
 /.vscode/*
+/.DS_Store
