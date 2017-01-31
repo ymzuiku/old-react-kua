@@ -38,5 +38,5 @@
     "webpack-dev-server": "^1.16.2"
   },
   "devDependencies": {},
-  "version": "0.0.16"
+  "version": "0.0.17"
 }
