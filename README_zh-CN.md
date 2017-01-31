@@ -22,6 +22,10 @@ kua init
 ```
 kua web
 ```
+# Open browser
+```
+127.0.0.1:7000/src/#/
+```
 
 ![](markdownImage/2017-01-31-17-02-39.png)
 
