@@ -1,6 +1,6 @@
 import * as React from 'react'
 import {Layer} from './Layer'
-import {tool} from './tool'
+import {tool} from '../tool'
 
 interface IProps extends React.HTMLProps<HTMLElement> {
 	ref?:string,
@@ -15,7 +15,7 @@ export class Text extends React.Component<IProps, IState> {
 		super(props)
 		this.state = {}
 		tool.setPhoneText(this.css)
-		this.setprops(this.props)
+		this.combProps(this.props)
 	}
 	componentWillMount(){}
 	render(){
@@ -25,13 +25,13 @@ export class Text extends React.Component<IProps, IState> {
 	}
 	componentDidMount(){}
 	componentWillReceiveProps(nextProps:IProps){
-		this.setprops(nextProps)
+		this.combProps(nextProps)
 	}
 	shouldComponentUpdate(){ return true }
 	componentWillUpdate(){}
 	componentWillUnmount(){}
 	//
-	setprops = (props: IProps)=> {
+	combProps = (props: IProps)=> {
 		const {style, ...rest} = props;
 		this.rest = rest;
 		if(!tool.pc) {

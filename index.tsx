@@ -1,20 +1,21 @@
 import {tool} from './src/tool'
 const {r, lr} = tool;
-import {Button} from './src/Button'
-import {Image} from './src/Image'
-import {Index} from './src/Index'
-import {Layer} from './src/Layer'
-import {Link} from './src/Link'
-import {ListView} from './src/ListView'
-import {RecyclerView} from './src/RecyclerView'
-import {RefreshControl} from './src/RefreshControl'
-import {ScrollView} from './src/ScrollView'
-import {Slider} from './src/Slider'
-import {Switch} from './src/Switch'
-import {Text} from './src/Text'
-import {TextInput} from './/src/TextInput'
-import {Video} from './src/Video'
-import {View} from './src/View'
+import {Button} from './src/basic/Button'
+import {Image} from './src/basic/Image'
+import {Index} from './src/basic/Index'
+import {Layer} from './src/basic/Layer'
+import {Link} from './src/basic/Link'
+import {ListView} from './src/basic/ListView'
+import {RecyclerView} from './src/basic/RecyclerView'
+import {RefreshControl} from './src/basic/RefreshControl'
+import {ScrollView} from './src/basic/ScrollView'
+import {Slider} from './src/basic/Slider'
+import {Switch} from './src/basic/Switch'
+import {Text} from './src/basic/Text'
+import {TextInput} from './/src/basic/TextInput'
+import {Video} from './src/basic/Video'
+import {View} from './src/basic/View'
+
 
 let YmUIKit = {
 	tool, r, lr,
@@ -32,7 +33,7 @@ let YmUIKit = {
 	Text,
 	TextInput,
 	Video,
-	View
+	View,
 }
 
 export default YmUIKit
@@ -53,5 +54,5 @@ export {
 	Text,
 	TextInput,
 	Video,
-	View
+	View,
 }

@@ -4,17 +4,12 @@ import * as ReactDOM from 'react-dom'
 import * as ReactRouter from 'react-router'
 const { Router, Route, IndexRoute, hashHistory } = ReactRouter
 
-import {View, tool} from '../YmUIKit'
-tool
+import {View, tool} from '../index'; tool;
 
-class Test extends React.Component<undefined, undefined> {
-	render(){
-		return <View>Hello TypeScript</View>
-	}
-}
+import {HelloWorld} from './HelloWorld'
 
 ReactDOM.render((
 	<Router history={hashHistory}>
-		<Route path='/' component={Test}></Route>
+		<Route path='/' component={HelloWorld}></Route>
 	</Router>
 ), document.getElementById('root'))
