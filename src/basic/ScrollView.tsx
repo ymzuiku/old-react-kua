@@ -1,13 +1,13 @@
 import * as React from 'react'
 
-interface IProps extends React.HTMLProps<HTMLElement> {
+export interface IScrollViewProps extends React.HTMLProps<HTMLElement> {
 	ref?:string,
 }
 interface IState {}
 
-export class ScrollView extends React.Component<IProps, IState> {
+export class ScrollView extends React.Component<IScrollViewProps, IState> {
 	static defaultProps = {};
-	constructor(props:IProps){
+	constructor(props:IScrollViewProps){
 		super(props)
 		this.state = {}
 	}
@@ -18,7 +18,7 @@ export class ScrollView extends React.Component<IProps, IState> {
 		)
 	}
 	componentDidMount(){}
-	componentWillReceiveProps(nextProps:IProps){}
+	componentWillReceiveProps(nextProps:IScrollViewProps){}
 	shouldComponentUpdate(){ return true }
 	componentWillUpdate(){}
 	componentWillUnmount(){}

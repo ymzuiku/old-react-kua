@@ -1,13 +1,13 @@
 import * as React from 'react'
 
-interface IProps extends React.HTMLProps<HTMLElement> {
+export interface ISliderProps extends React.HTMLProps<HTMLElement> {
 	ref?:string,
 }
 interface IState {}
 
-export class Slider extends React.Component<IProps, IState> {
+export class Slider extends React.Component<ISliderProps, IState> {
 	static defaultProps = {};
-	constructor(props:IProps){
+	constructor(props:ISliderProps){
 		super(props)
 		this.state = {}
 	}
@@ -18,7 +18,7 @@ export class Slider extends React.Component<IProps, IState> {
 		)
 	}
 	componentDidMount(){}
-	componentWillReceiveProps(nextProps:IProps){}
+	componentWillReceiveProps(nextProps:ISliderProps){}
 	shouldComponentUpdate(){ return true }
 	componentWillUpdate(){}
 	componentWillUnmount(){}

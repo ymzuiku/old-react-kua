@@ -1,13 +1,13 @@
 import * as React from 'react'
 
-interface IProps extends React.HTMLProps<HTMLElement> {
+export interface IRecyclerViewProps extends React.HTMLProps<HTMLElement> {
 	ref?:string,
 }
 interface IState {}
 
-export class RecyclerView extends React.Component<IProps, IState> {
+export class RecyclerView extends React.Component<IRecyclerViewProps, IState> {
 	static defaultProps = {};
-	constructor(props:IProps){
+	constructor(props:IRecyclerViewProps){
 		super(props)
 		this.state = {}
 	}
@@ -18,7 +18,7 @@ export class RecyclerView extends React.Component<IProps, IState> {
 		)
 	}
 	componentDidMount(){}
-	componentWillReceiveProps(nextProps:IProps){}
+	componentWillReceiveProps(nextProps:IRecyclerViewProps){}
 	shouldComponentUpdate(){ return true }
 	componentWillUpdate(){}
 	componentWillUnmount(){}

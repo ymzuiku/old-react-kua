@@ -1,13 +1,13 @@
 import * as React from 'react'
 
-interface IProps extends React.HTMLProps<HTMLElement> {
+export interface IRefreshControlProps extends React.HTMLProps<HTMLElement> {
 	ref?:string,
 }
 interface IState {}
 
-export class RefreshControl extends React.Component<IProps, IState> {
+export class RefreshControl extends React.Component<IRefreshControlProps, IState> {
 	static defaultProps = {};
-	constructor(props:IProps){
+	constructor(props:IRefreshControlProps){
 		super(props)
 		this.state = {}
 	}
@@ -18,7 +18,7 @@ export class RefreshControl extends React.Component<IProps, IState> {
 		)
 	}
 	componentDidMount(){}
-	componentWillReceiveProps(nextProps:IProps){}
+	componentWillReceiveProps(nextProps:IRefreshControlProps){}
 	shouldComponentUpdate(){ return true }
 	componentWillUpdate(){}
 	componentWillUnmount(){}

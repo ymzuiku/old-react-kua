@@ -1,13 +1,13 @@
 import * as React from 'react'
 
-interface IProps extends React.HTMLProps<HTMLElement> {
+export interface ISwitchProps extends React.HTMLProps<HTMLElement> {
 	ref?:string,
 }
 interface IState {}
 
-export class Switch extends React.Component<IProps, IState> {
+export class Switch extends React.Component<ISwitchProps, IState> {
 	static defaultProps = {};
-	constructor(props:IProps){
+	constructor(props:ISwitchProps){
 		super(props)
 		this.state = {}
 	}
@@ -18,7 +18,7 @@ export class Switch extends React.Component<IProps, IState> {
 		)
 	}
 	componentDidMount(){}
-	componentWillReceiveProps(nextProps:IProps){}
+	componentWillReceiveProps(nextProps:ISwitchProps){}
 	shouldComponentUpdate(){ return true }
 	componentWillUpdate(){}
 	componentWillUnmount(){}

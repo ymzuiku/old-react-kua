@@ -1,13 +1,13 @@
 import * as React from 'react'
 
-interface IProps extends React.HTMLProps<HTMLElement> {
+export interface ILinkProps extends React.HTMLProps<HTMLElement> {
 	ref?:string,
 }
 interface IState {}
 
-export class Link extends React.Component<IProps, IState> {
+export class Link extends React.Component<ILinkProps, IState> {
 	static defaultProps = {};
-	constructor(props:IProps){
+	constructor(props:ILinkProps){
 		super(props)
 		this.state = {}
 	}
@@ -18,7 +18,7 @@ export class Link extends React.Component<IProps, IState> {
 		)
 	}
 	componentDidMount(){}
-	componentWillReceiveProps(nextProps:IProps){}
+	componentWillReceiveProps(nextProps:ILinkProps){}
 	shouldComponentUpdate(){ return true }
 	componentWillUpdate(){}
 	componentWillUnmount(){}

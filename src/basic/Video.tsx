@@ -1,13 +1,13 @@
 import * as React from 'react'
 
-interface IProps extends React.HTMLProps<HTMLElement> {
+export interface IVideoProps extends React.HTMLProps<HTMLElement> {
 	ref?:string,
 }
 interface IState {}
 
-export class Video extends React.Component<IProps, IState> {
+export class Video extends React.Component<IVideoProps, IState> {
 	static defaultProps = {};
-	constructor(props:IProps){
+	constructor(props:IVideoProps){
 		super(props)
 		this.state = {}
 	}
@@ -18,7 +18,7 @@ export class Video extends React.Component<IProps, IState> {
 		)
 	}
 	componentDidMount(){}
-	componentWillReceiveProps(nextProps:IProps){}
+	componentWillReceiveProps(nextProps:IVideoProps){}
 	shouldComponentUpdate(){ return true }
 	componentWillUpdate(){}
 	componentWillUnmount(){}

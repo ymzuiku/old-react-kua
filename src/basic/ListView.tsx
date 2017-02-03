@@ -1,13 +1,13 @@
 import * as React from 'react'
 
-interface IProps extends React.HTMLProps<HTMLElement> {
+export interface IListViewProps extends React.HTMLProps<HTMLElement> {
 	ref?:string,
-}
+}	
 interface IState {}
 
-export class ListView extends React.Component<IProps, IState> {
+export class ListView extends React.Component<IListViewProps, IState> {
 	static defaultProps = {};
-	constructor(props:IProps){
+	constructor(props:IListViewProps){
 		super(props)
 		this.state = {}
 	}
@@ -18,7 +18,7 @@ export class ListView extends React.Component<IProps, IState> {
 		)
 	}
 	componentDidMount(){}
-	componentWillReceiveProps(nextProps:IProps){}
+	componentWillReceiveProps(nextProps:IListViewProps){}
 	shouldComponentUpdate(){ return true }
 	componentWillUpdate(){}
 	componentWillUnmount(){}

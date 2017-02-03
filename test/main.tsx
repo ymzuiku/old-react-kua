@@ -7,9 +7,10 @@ const { Router, Route, IndexRoute, hashHistory } = ReactRouter
 import {View, tool} from '../index'; tool;
 
 import {HelloWorld} from './HelloWorld'
+import {TestButton} from './TestButton'
 
 ReactDOM.render((
 	<Router history={hashHistory}>
-		<Route path='/' component={HelloWorld}></Route>
+		<Route path='/' component={TestButton}></Route>
 	</Router>
 ), document.getElementById('root'))

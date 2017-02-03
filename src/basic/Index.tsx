@@ -1,13 +1,13 @@
 import * as React from 'react'
 
-interface IProps extends React.HTMLProps<HTMLElement> {
+export interface IIndexProps extends React.HTMLProps<HTMLElement> {
 	ref?:string,
 }
 interface IState {}
 
-export class Index extends React.Component<IProps, IState> {
+export class Index extends React.Component<IIndexProps, IState> {
 	static defaultProps = {};
-	constructor(props:IProps){
+	constructor(props:IIndexProps){
 		super(props)
 		this.state = {}
 	}
@@ -18,7 +18,7 @@ export class Index extends React.Component<IProps, IState> {
 		)
 	}
 	componentDidMount = ()=>{}
-	componentWillReceiveProps = (nextProps:IProps) =>{}
+	componentWillReceiveProps = (nextProps:IIndexProps) =>{}
 	shouldComponentUpdate = ()=>{ return true }
 	componentWillUpdate = ()=>{}
 	componentWillUnmount = ()=>{}

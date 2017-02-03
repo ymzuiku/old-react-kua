@@ -1,13 +1,13 @@
 import * as React from 'react'
 
-interface IProps extends React.HTMLProps<HTMLElement> {
+export interface ITextInputProps extends React.HTMLProps<HTMLElement> {
 	ref?:string,
 }
 interface IState {}
 
-export class TextInput extends React.Component<IProps, IState> {
+export class TextInput extends React.Component<ITextInputProps, IState> {
 	static defaultProps = {};
-	constructor(props:IProps){
+	constructor(props:ITextInputProps){
 		super(props)
 		this.state = {}
 	}
@@ -18,7 +18,7 @@ export class TextInput extends React.Component<IProps, IState> {
 		)
 	}
 	componentDidMount(){}
-	componentWillReceiveProps(nextProps:IProps){}
+	componentWillReceiveProps(nextProps:ITextInputProps){}
 	shouldComponentUpdate(){ return true }
 	componentWillUpdate(){}
 	componentWillUnmount(){}

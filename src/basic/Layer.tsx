@@ -1,13 +1,13 @@
 import * as React from 'react'
 
-interface IProps extends React.HTMLProps<HTMLElement> {
+export interface ILayerProps extends React.HTMLProps<HTMLElement> {
 	ref?:string,
 }
 interface IState {}
 
-export class Layer extends React.Component<IProps, IState> {
+export class Layer extends React.Component<ILayerProps, IState> {
 	static defaultProps = {};
-	constructor(props:IProps){
+	constructor(props:ILayerProps){
 		super(props)
 		this.state = {}
 	}
@@ -18,7 +18,7 @@ export class Layer extends React.Component<IProps, IState> {
 		)
 	}
 	componentDidMount(){}
-	componentWillReceiveProps(nextProps:IProps){}
+	componentWillReceiveProps(nextProps:ILayerProps){}
 	shouldComponentUpdate(){ return true }
 	componentWillUpdate(){}
 	componentWillUnmount(){}
