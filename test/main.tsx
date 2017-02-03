@@ -8,9 +8,10 @@ import {View, tool} from '../index'; tool;
 
 import {HelloWorld} from './HelloWorld'
 import {TestButton} from './TestButton'
+import {TestImage} from './TestImage'
 
 ReactDOM.render((
 	<Router history={hashHistory}>
-		<Route path='/' component={TestButton}></Route>
+		<Route path='/' component={TestImage}></Route>
 	</Router>
 ), document.getElementById('root'))

@@ -1,30 +1,30 @@
 import * as React from 'react'
 import {Layer} from './Layer'
+import {View} from './View'
 import {tool} from '../tool'
 
 export interface IButtonProps extends React.HTMLProps<HTMLElement> {
 	ref?:string,
 	pickEnter?: Function,
 	pickDown?: Function,
-	pickUp?:Function,
+	pickEnd?:Function,
 }
 interface IState {}
 
 export class Button extends React.Component<IButtonProps, IState> {
-	public css:React.CSSProperties
-	public ps:IButtonProps = {}
-	public static interfaceOfProps:IButtonProps
+	public css:React.CSSProperties = {}
+	public rest:IButtonProps = {}
 	static defaultProps = {};
 	constructor(props:IButtonProps){
 		super(props)
 		this.state = {}
-		this.create()
+		this.init()
 	}
 	componentWillMount(){}
 	render(){
-		this.reloadProps(this.props)
+		this.compProps(this.props)
 		return (
-			<Layer {...this.ps}>{this.props.children}</Layer>
+			<View {...this.rest}>{this.props.children}</View>
 		)
 	}
 	componentDidMount(){}
@@ -33,34 +33,27 @@ export class Button extends React.Component<IButtonProps, IState> {
 	componentWillUpdate(){}
 	componentWillUnmount(){}
 
-	reloadProps = (props: IButtonProps)=>{
-		const {style, pickDown, pickEnter, pickUp, ...rest} = props;
-		if (this.css) {
-			this.css = tool.assign(this.css, style)
-			this.ps.style = this.css
-		} else {
-			this.ps.style = style
-		}
-		this.ps = tool.assign(this.ps, rest)
-	}
 	// ------
-	create = ()=>{
+	init = ()=>{
 		if(tool.pc) {
-			this.ps = {
+			this.rest = {
 				onMouseEnter: this.handleMouseEnter,
 				onMouseLeave: this.handleMouseLeav,
 				onMouseDown: this.handleMouseDown,
 				onMouseUp: this.handleMouseUp,
 			}
 		} else {
-			this.ps = {
+			this.rest = {
 				onTouchStart: this.handleTouchStart,
 				onTouchEnd: this.handleTouchEnd,
 				onTouchCancel: this.handleTouchCancel
 			}
-			this.css = {}
-			tool.setPhoneView(this.css)
 		}
+	}
+	compProps = (props: IButtonProps)=>{
+		const {style, pickDown, pickEnter, pickEnd, ...rest} = props;
+		this.css = {...this.css, ...style}
+		this.rest = {...this.rest, ...rest, style:this.css}
 	}
 	handleMouseEnter = ()=>{
 		if(this.props.pickEnter) {
@@ -68,8 +61,8 @@ export class Button extends React.Component<IButtonProps, IState> {
 		}
 	}
 	handleMouseLeav = ()=>{
-		if(this.props.pickUp) {
-			this.props.pickUp()
+		if(this.props.pickEnd) {
+			this.props.pickEnd()
 		}
 	}
 	handleMouseDown = ()=>{
@@ -88,13 +81,13 @@ export class Button extends React.Component<IButtonProps, IState> {
 		}
 	}
 	handleTouchEnd = ()=>{
-		if(this.props.pickUp) {
-			this.props.pickUp()
+		if(this.props.pickEnd) {
+			this.props.pickEnd()
 		}
 	}
 	handleTouchCancel = ()=>{
-		if(this.props.pickUp) {
-			this.props.pickUp()
+		if(this.props.pickEnd) {
+			this.props.pickEnd()
 		}
 	}
 }

@@ -10,7 +10,7 @@ interface IState {}
 export class Text extends React.Component<ITextProps, IState> {
 	static defaultProps = {};
 	private css:React.CSSProperties = {}
-	private rest:any;
+	private rest:ITextProps = {}
 	constructor(props: ITextProps){
 		super(props)
 		this.state = {}
@@ -20,7 +20,7 @@ export class Text extends React.Component<ITextProps, IState> {
 	componentWillMount(){}
 	render(){
 		return (
-			<Layer style={this.css} {...this.rest}>{this.props.children}</Layer>
+			<Layer {...this.rest}>{this.props.children}</Layer>
 		)
 	}
 	componentDidMount(){}
@@ -33,11 +33,7 @@ export class Text extends React.Component<ITextProps, IState> {
 	//
 	combProps = (props: ITextProps)=> {
 		const {style, ...rest} = props;
-		this.rest = rest;
-		if(!tool.pc) {
-			this.css = tool.assign(this.css, style)
-		} else {
-			this.css = style
-		}
+		this.css = {...this.css, ...style}
+		this.rest = {...rest, style:this.css}
 	}
 }

@@ -1,6 +1,7 @@
 import {tool} from './src/tool'
 const {r, lr} = tool;
 import {Button, IButtonProps} from './src/basic/Button'
+import {ImageBackground, IImageBackgroundProps} from './src/basic/ImageBackgroud'
 import {Image, IImageProps} from './src/basic/Image'
 import {Index, IIndexProps} from './src/basic/Index'
 import {Layer, ILayerProps} from './src/basic/Layer'
@@ -16,12 +17,12 @@ import {TextInput, ITextInputProps} from './/src/basic/TextInput'
 import {Video, IVideoProps} from './src/basic/Video'
 import {View, IViewProps} from './src/basic/View'
 
-
 // YmUIKit
 export {
 	tool, r, lr,
 	Button, IButtonProps,
 	Image, IImageProps,
+	ImageBackground, IImageBackgroundProps,
 	Index, IIndexProps,
 	Layer, ILayerProps,
 	Link, ILinkProps,

@@ -79,6 +79,28 @@ export let tool = {
 			}
 		})
 	},
+	scrollFix(elem:any){
+		// Variables to track inputs
+		var startY, startTopScroll;
+		
+		elem = elem || document.querySelector(elem);
+		
+		// If there is no element, then do nothing	
+		if(!elem)
+			return;
+
+		// Handle the start of interactions
+		elem.addEventListener('touchstart', function(event:any){
+			startY = event.touches[0].pageY;
+			startTopScroll = elem.scrollTop;
+			
+			if(startTopScroll <= 0)
+				elem.scrollTop = 1;
+
+			if(startTopScroll + elem.offsetHeight >= elem.scrollHeight)
+				elem.scrollTop = elem.scrollHeight - elem.offsetHeight - 1;
+		}, false);
+	},
 	onload(){
 		let body = document.getElementsByTagName('body')[0];
 		body.style.margin = '0';
@@ -139,6 +161,7 @@ export let tool = {
 		}
 		return to;
 	},
+	
 	reinser(arr:any, from:number, to:number) {
 		const _arr = arr.slice(0)
 		const val = _arr(from);
@@ -164,37 +187,53 @@ export let tool = {
 		obj.style.position = 'absolute';
 	},
 	setPhoneView(obj: React.CSSProperties){
-		if(!tool.pc) {
-			obj['-webkit-tap-highlight-color']='transparent';
-			obj['-webkit-touch-callout'] = 'none';
-			obj['-webkit-user-select'] = 'none';
-			obj['-moz-user-select'] = 'none';
-			obj['-ms-user-select'] = 'none';
+		if(tool.pc) return
+		obj = {
+			...obj,
+			'-webkit-tap-highlight-color': 'transparent',
+			'-webkit-user-modify': 'read-write-plaintext-only',
+			'-webkit-touch-callout': 'none',
+			'-webkit-transform-style': 'preserve-3d',
+			'-webkit-backface-visibility': 'hidden',
+			'-webkit-user-select': 'none',	/*webkit浏览器*/
+			'-moz-user-select': 'none',	/*火狐*/
+			'-ms-user-select': 'none',	/*IE10*/
+			'user-select': 'none',
+			'onselectstart': 'none',
 		}
 	},
 	setPhoneText(obj: React.CSSProperties) {
-		if(!tool.pc) {
-			obj['-webkit-tap-highlight-color']='transparent';
-			obj['-webkit-touch-callout'] = 'none';
+		if(tool.pc) return
+		obj = {
+			...obj,
+			'-webkit-tap-highlight-color': 'transparent',
+			'-webkit-touch-callout': 'none', 
 		}
 	},
 	setPhoneInput(obj: React.CSSProperties) {
-		if(!tool.pc) {
-
-		}
+		if(tool.pc) return
 	},
 	setFlexd(obj: React.CSSProperties) {
 		let flexCss:React.CSSProperties = {
 			position: 'fixed',
 			zIndex:999,
 		}
-		obj = tool.assign(obj,flexCss);
+		obj = {...flexCss, ...obj}
 	},
 	toFixed(obj:number, num:number) {
 		let n = obj.toFixed(1)
 		return n;
 	},
 	// --- transform css string ---
+	transform(obj:React.CSSProperties, str:string) {
+		obj = {
+			...obj,
+			'-webkit-transform': str,
+			'-moz-transform': str,
+			'-ms-transform': str,
+			'transform': str,
+		}
+	},
 	translate3d(x:number, y:number, z:number):string {
 		return `translate3d(${x}rem, ${y}rem, ${z}rem)`
 	},
@@ -243,5 +282,7 @@ if (tool.created === false) {
 	tool.onload()
 	tool.changePc()
 	tool.created = true
+	let body = document.getElementsByTagName('root')[0]
+	tool.scrollFix(body)
 }
 

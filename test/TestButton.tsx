@@ -1,11 +1,11 @@
 import * as React from 'react'
-import {Button, IButtonProps, Layer, View} from '../index'
+import {Button, IButtonProps, Layer, View, tool} from '../index'
 
 interface IProps extends React.HTMLProps<HTMLElement> {
 	ref?:string,
 }
 interface IState {
-	css: React.CSSProperties
+	color: String
 }
 
 export class TestButton extends React.Component<IProps, IState> {
@@ -13,7 +13,7 @@ export class TestButton extends React.Component<IProps, IState> {
 	constructor(props:IProps){
 		super(props)
 		this.state = {
-			css: {color:'#84f'}
+			color: '#aaa'
 		}
 	}
 	componentWillMount = ()=>{}
@@ -21,28 +21,35 @@ export class TestButton extends React.Component<IProps, IState> {
 		let a:IButtonProps = {
 			pickEnter: ()=>{
 				this.setState({
-					css: {color:'#48f'}
+					color:'#888'
 				})
-				console.log('enter')
 			},
 			pickDown: ()=>{
 				this.setState({
-					css: {color:'#f84'}
+					color:'#444'
 				})
-				console.log('down')
 			},
-			pickUp: ()=>{
+			pickEnd: ()=>{
 				this.setState({
-					css: {color:'#aaa'}
+					color:'#aaa'
 				})
-				console.log('up')
 			},
 		}
-		a.style = this.state.css
+		let sty:React.CSSProperties = {
+			color:this.state.color, fontFamily:tool.fontFamily, fontSize:'1rem',
+			backgroundColor:'#f90',
+			borderRadius:'0.12rem',
+			margin:'0.2rem'
+		}
+		a = {...a, style:sty}
 		return (
 			<View>
-				<Button {...a}>the btn 1</Button>
-				<Button {...a}>the btn 2</Button>
+				<View full='window' style={{backgroundColor:'#f84'}}>
+					<Button {...a}>the btn 0</Button>
+					<Button {...a}>the btn 0</Button>
+					<Button {...a}>the btn 0</Button>
+				</View>
+				<View full='window' style={{zIndex:-999}}></View>
 			</View>
 		)
 	}
@@ -51,4 +58,11 @@ export class TestButton extends React.Component<IProps, IState> {
 	shouldComponentUpdate = ()=>{ return true }
 	componentWillUpdate = ()=>{}
 	componentWillUnmount = ()=>{}
+
+	// ----
+	changeColor = ()=>{
+		this.setState({
+			color:'#ccc'
+		})
+	}
 }

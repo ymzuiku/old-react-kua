@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 export interface ILayerProps extends React.HTMLProps<HTMLElement> {
-	ref?:string,
+	ref?:string
 }
 interface IState {}
 
@@ -9,7 +9,6 @@ export class Layer extends React.Component<ILayerProps, IState> {
 	static defaultProps = {};
 	constructor(props:ILayerProps){
 		super(props)
-		this.state = {}
 	}
 	componentWillMount(){}
 	render(){
