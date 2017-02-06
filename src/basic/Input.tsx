@@ -1,17 +1,16 @@
 import * as React from 'react'
-import {Layer} from './Layer'
 import {tool} from '../tool'
 
-export interface ITextProps extends React.HTMLProps<HTMLElement> {
+export interface IInputProps extends React.HTMLProps<HTMLInputElement> {
 	ref?:string,
 }
 interface IState {}
 
-export class Text extends React.Component<ITextProps, IState> {
+export class Input extends React.Component<IInputProps, IState> {
+	public css:React.CSSProperties = {}
+	public rest:React.HTMLProps<HTMLInputElement> = {}
 	static defaultProps = {};
-	private css:React.CSSProperties = {}
-	private rest:ITextProps = {}
-	constructor(props: ITextProps){
+	constructor(props:IInputProps){
 		super(props)
 		this.state = {}
 		this.init()
@@ -20,15 +19,15 @@ export class Text extends React.Component<ITextProps, IState> {
 	render(){
 		this.combProps(this.props)
 		return (
-			<Layer {...this.rest}>{this.props.children}</Layer>
+			<input {...this.rest}>{this.props.children}</input>
 		)
 	}
 	componentDidMount(){}
-	componentWillReceiveProps(nextProps:ITextProps){}
+	componentWillReceiveProps(nextProps:IInputProps){}
 	shouldComponentUpdate(){ return true }
 	componentWillUpdate(){}
 	componentWillUnmount(){}
-	//
+	//-----------
 	changePhone = ()=>{
 		if (tool.pc) return
 		this.css = {
@@ -40,11 +39,23 @@ export class Text extends React.Component<ITextProps, IState> {
 			'-webkit-backface-visibility': 'hidden',
 		}
 	}
-	init = ()=>{
+	init =()=>{
 		this.changePhone()
+		if(this.props.type === 'file') {
+
+		} else if (this.props.type === 'checkbox') {
+
+		} else {
+			this.css = {
+				...this.css,
+				borderWidth:'0.02rem',
+				borderColor:'#888',
+				borderRadius:'0.06rem',
+			}
+		}
 	}
-	combProps = (props: ITextProps)=> {
-		const {style, ...rest} = props;
+	combProps = (props:IInputProps)=>{
+		const {style, ...rest} = props
 		this.css = {...this.css, ...style}
 		this.rest = {...rest, style:this.css}
 	}

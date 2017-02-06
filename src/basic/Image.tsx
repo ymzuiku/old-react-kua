@@ -1,7 +1,7 @@
 import * as React from 'react'
 import {Layer} from './Layer'
 
-export interface IImageProps extends React.HTMLProps<HTMLElement> {
+export interface IImageProps extends React.HTMLProps<HTMLImageElement> {
 	ref?:string,
 }
 interface IState {}

@@ -5,20 +5,23 @@ export interface ILayerProps extends React.HTMLProps<HTMLElement> {
 }
 interface IState {}
 
-export class Layer extends React.Component<ILayerProps, IState> {
+export class Layer<P, S> extends React.Component<ILayerProps, IState> {
 	static defaultProps = {};
 	constructor(props:ILayerProps){
 		super(props)
+		this.state = {}
+		this.init()
 	}
-	componentWillMount(){}
+	componentWillMount():void {}
 	render(){
 		return (
 			<div {...this.props}>{this.props.children}</div>
 		)
 	}
-	componentDidMount(){}
-	componentWillReceiveProps(nextProps:ILayerProps){}
-	shouldComponentUpdate(){ return true }
-	componentWillUpdate(){}
-	componentWillUnmount(){}
+	componentDidMount():void {}
+	componentWillReceiveProps(nextProps:ILayerProps):void {}
+	shouldComponentUpdate():boolean { return true }
+	componentWillUpdate():void {}
+	componentWillUnmount():void {}
+	init = ()=>{}
 }

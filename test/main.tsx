@@ -7,11 +7,10 @@ const { Router, Route, IndexRoute, hashHistory } = ReactRouter
 import {View, tool} from '../index'; tool;
 
 import {HelloWorld} from './HelloWorld'
-import {TestButton} from './TestButton'
-import {TestImage} from './TestImage'
+import {AddId} from './CanseqWeixin/AddId'
 
 ReactDOM.render((
 	<Router history={hashHistory}>
-		<Route path='/' component={TestImage}></Route>
+		<Route path='/' component={AddId}></Route>
 	</Router>
 ), document.getElementById('root'))

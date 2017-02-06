@@ -13,9 +13,10 @@ import {ScrollView, IScrollViewProps} from './src/basic/ScrollView'
 import {Slider, ISliderProps} from './src/basic/Slider'
 import {Switch, ISwitchProps} from './src/basic/Switch'
 import {Text, ITextProps} from './src/basic/Text'
-import {TextInput, ITextInputProps} from './/src/basic/TextInput'
+import {Input, IInputProps} from './/src/basic/Input'
 import {Video, IVideoProps} from './src/basic/Video'
 import {View, IViewProps} from './src/basic/View'
+import {LabelButton, ILabelButtonProps} from './src/design/LabelButton'
 
 // YmUIKit
 export {
@@ -33,7 +34,8 @@ export {
 	Slider, ISliderProps,
 	Switch, ISwitchProps,
 	Text, ITextProps,
-	TextInput, ITextInputProps,
+	Input, IInputProps,
 	Video, IVideoProps,
-	View, IViewProps
+	View, IViewProps,
+	LabelButton, ILabelButtonProps,
 }

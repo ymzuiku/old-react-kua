@@ -190,6 +190,7 @@ export let tool = {
 		if(tool.pc) return
 		obj = {
 			...obj,
+			'-webkit-appearance': 'none',
 			'-webkit-tap-highlight-color': 'transparent',
 			'-webkit-user-modify': 'read-write-plaintext-only',
 			'-webkit-touch-callout': 'none',
@@ -206,12 +207,20 @@ export let tool = {
 		if(tool.pc) return
 		obj = {
 			...obj,
+			'-webkit-appearance': 'none',
 			'-webkit-tap-highlight-color': 'transparent',
 			'-webkit-touch-callout': 'none', 
 		}
 	},
 	setPhoneInput(obj: React.CSSProperties) {
 		if(tool.pc) return
+		console.log('input')
+		obj = {
+			...obj,
+			'-webkit-appearance': 'none',
+			'-webkit-tap-highlight-color': 'transparent',
+			'-webkit-touch-callout': 'none', 
+		}
 	},
 	setFlexd(obj: React.CSSProperties) {
 		let flexCss:React.CSSProperties = {

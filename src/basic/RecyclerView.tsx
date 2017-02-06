@@ -4,7 +4,7 @@ export interface IRecyclerViewProps extends React.HTMLProps<HTMLElement> {
 	ref?:string,
 }
 interface IState {}
-
+//Recycler
 export class RecyclerView extends React.Component<IRecyclerViewProps, IState> {
 	static defaultProps = {};
 	constructor(props:IRecyclerViewProps){

@@ -11,7 +11,7 @@ export interface IButtonProps extends React.HTMLProps<HTMLElement> {
 }
 interface IState {}
 
-export class Button extends React.Component<IButtonProps, IState> {
+export class Button<P, S> extends React.Component<IButtonProps, IState> {
 	public css:React.CSSProperties = {}
 	public rest:IButtonProps = {}
 	static defaultProps = {};
@@ -48,6 +48,9 @@ export class Button extends React.Component<IButtonProps, IState> {
 				onTouchEnd: this.handleTouchEnd,
 				onTouchCancel: this.handleTouchCancel
 			}
+		}
+		this.css = {
+			cursor: 'pointer'
 		}
 	}
 	compProps = (props: IButtonProps)=>{

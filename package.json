@@ -6,8 +6,7 @@
     "test": "test"
   },
   "scripts": {
-    "web": "webpack-dev-server -d --host=0.0.0.0 --port=7000 --hot build/",
-    "watch": "webpack --watch"
+    "start": "webpack --watch & webpack-dev-server -d  build/"
   },
   "repository": {
     "type": "git",
@@ -38,6 +37,7 @@
   },
   "devDependencies": {
     "awesome-typescript-loader": "^3.0.0-beta.18",
+    "internal-ip": "^1.2.0",
     "source-map-loader": "^0.1.6",
     "typescript": "^2.1.5",
     "webpack": "^1.14.0",
