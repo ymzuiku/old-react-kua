@@ -6,10 +6,12 @@ export interface ILabelButtonProps extends IButtonProps {
 	enterColor:string,
 	downColor:string,
 	normalColor:string,
+	backgroundColor?:string,
 	block?:Function,
 }
 interface IState {
 	color:string,
+	backgroundColor: string,
 }
 
 export class LabelButton<P, S> extends React.Component<ILabelButtonProps, IState> {
@@ -19,7 +21,8 @@ export class LabelButton<P, S> extends React.Component<ILabelButtonProps, IState
 	constructor(props:ILabelButtonProps){
 		super(props)
 		this.state = {
-			color:this.props.enterColor
+			color:this.props.normalColor,
+			backgroundColor: 'rgba(0,0,0,0)'
 		}
 		this.init()
 	}
@@ -40,16 +43,18 @@ export class LabelButton<P, S> extends React.Component<ILabelButtonProps, IState
 
 	}
 	combProps = ()=>{
-		const {style, enterColor, downColor, normalColor, pickDown, pickEnter, pickEnd, ...rest} = this.props
+		const {style, enterColor, downColor, normalColor, pickDown, pickEnter, pickEnd, backgroundColor, ...rest} = this.props
 		this.css = {
 			color: this.state.color,
+			backgroundColor: this.state.backgroundColor || 'rgba(0,0,0,0)',
 			...style
 		}
 		this.rest = {
 			pickEnter:()=>{
 				console.log('enter')
 				this.setState({
-					color:this.props.enterColor
+					color:this.props.enterColor,
+					backgroundColor: this.props.backgroundColor || 'rgba(0,0,0,0)'
 				})
 			},
 			pickDown: ()=>{
@@ -60,7 +65,8 @@ export class LabelButton<P, S> extends React.Component<ILabelButtonProps, IState
 			},
 			pickEnd: ()=>{
 				this.setState({
-					color:this.props.normalColor
+					color:this.props.normalColor,
+					backgroundColor: 'rgba(0,0,0,0)'
 				})
 				if(this.props.block) this.props.block()
 			},

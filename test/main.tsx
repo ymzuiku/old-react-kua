@@ -7,10 +7,12 @@ const { Router, Route, IndexRoute, hashHistory } = ReactRouter
 import {View, tool} from '../index'; tool;
 
 import {HelloWorld} from './HelloWorld'
+import {LikeSketchWeb} from './LikeSketchWeb'
 import {AddId} from './CanseqWeixin/AddId'
 
 ReactDOM.render((
 	<Router history={hashHistory}>
 		<Route path='/' component={AddId}></Route>
+		<Route path='/sk' component={LikeSketchWeb}></Route>
 	</Router>
 ), document.getElementById('root'))

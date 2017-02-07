@@ -39,7 +39,6 @@ export class View extends React.Component<IViewProps, IState> {
 		this.css = {
 			'-webkit-appearance': 'none',
 			'-webkit-tap-highlight-color': 'transparent',
-			'-webkit-user-modify': 'read-write-plaintext-only',
 			'-webkit-touch-callout': 'none',
 			'-webkit-transform-style': 'preserve-3d',
 			'-webkit-backface-visibility': 'hidden',
@@ -85,7 +84,7 @@ export class View extends React.Component<IViewProps, IState> {
 
 	}
 	combProps = (props: IViewProps)=> {
-		const {style, full, ...rest} = props;
+		const {style, full, flex, ...rest} = props;
 		this.rest = {...rest};
 		this.css = {...this.css, ...style}
 		this.rest = {...this.rest, style:this.css}

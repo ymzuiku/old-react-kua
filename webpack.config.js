@@ -1,7 +1,6 @@
 var Webpack = require('webpack')
 var qrcode = require('qrcode-terminal');
 var internalIp = require('internal-ip');
-var WebpackDevServer = require('webpack-dev-server')
 var ip = internalIp.v4();
 var port = 7000;
 var webUrl = 'http://' + ip + ':' + port;
@@ -14,7 +13,7 @@ const webpackConfig = {
     output: {
         filename: 'bundle.js',
         path: __dirname + '/build',
-        publicPatch: __dirname + '/assets/'
+        publicPatch: __dirname + '/public/'
     },
     devtool: 'source-map',
     devServer:{

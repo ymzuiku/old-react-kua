@@ -1,7 +1,7 @@
 {
   "name": "react-kua",
   "description": "kua是一个基于react的跨平台集成方案, 思路是让移动端和pc端使用同一套代码, 适配同样的设计.这一切都是基于web. 因为相信Web是最终跨平台解决方案.",
-  "main": "index.jsx",
+  "main": "src/main.tsx",
   "directories": {
     "test": "test"
   },
@@ -39,6 +39,7 @@
     "awesome-typescript-loader": "^3.0.0-beta.18",
     "internal-ip": "^1.2.0",
     "source-map-loader": "^0.1.6",
+    "supervisor": "^0.12.0",
     "typescript": "^2.1.5",
     "webpack": "^1.14.0",
     "webpack-dev-server": "^1.16.2"

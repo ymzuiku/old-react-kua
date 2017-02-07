@@ -20,7 +20,7 @@ export class Text extends React.Component<ITextProps, IState> {
 	render(){
 		this.combProps(this.props)
 		return (
-			<Layer {...this.rest}>{this.props.children}</Layer>
+			<span {...this.rest}>{this.props.children}</span>
 		)
 	}
 	componentDidMount(){}
@@ -34,7 +34,8 @@ export class Text extends React.Component<ITextProps, IState> {
 		this.css = {
 			'-webkit-appearance': 'none',
 			'-webkit-tap-highlight-color': 'transparent',
-			'-webkit-user-modify': 'read-write-plaintext-only',
+			//调用键盘，加了这行微信会提示防盗号
+			// '-webkit-user-modify': 'read-write-plaintext-only',
 			'-webkit-touch-callout': 'none',
 			'-webkit-transform-style': 'preserve-3d',
 			'-webkit-backface-visibility': 'hidden',
