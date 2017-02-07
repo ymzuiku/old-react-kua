@@ -89,10 +89,11 @@ export class AddId<P, S> extends React.Component<IAddidProps, IState> {
 		let bodyTopLongText:ITextProps = {
 			style:{
 				textIndent:'0.4rem',
-				fontSize:'0.2rem',
+				fontSize:'0.22rem',
 				color:'#fff',
-				margin:'1rem',
 				marginTop:'0.5rem',
+				marginLeft:'0.8rem',
+				marginRight:'0.8rem',
 				fontFamily: tool.fontFamily,
 			}
 		}
@@ -108,11 +109,45 @@ export class AddId<P, S> extends React.Component<IAddidProps, IState> {
 			normalColor:waitLabelButtonColor[0],
 			enterColor: waitLabelButtonColor[1],
 			downColor: waitLabelButtonColor[2],
-			backgroundColor:'#rgba(0,0,0,0.5)',
+			enterBackgroundColor:'rgba(256,256,256,0.2)',
 			style:{
 				fontSize:'0.26rem',
 				textAlign:'center',
 				margin:'0.1rem',
+				marginTop:'0.4rem',
+				display:'flex',
+				flexDirection: 'row',
+				alignSelf:'center',
+			}
+		}
+		let viewListButton:ILabelButtonProps = {
+			children:'查看针对组织用户的服务内容',
+			normalColor:waitLabelButtonColor[0],
+			enterColor: waitLabelButtonColor[1],
+			downColor: waitLabelButtonColor[2],
+			enterBackgroundColor:'rgba(256,256,256,0.2)',
+			style:{
+				fontSize:'0.26rem',
+				textAlign:'center',
+				margin:'0.1rem',
+				display:'flex',
+				flexDirection: 'row',
+				// lineHeight:'0.1rem',
+				alignSelf:'center',
+			}
+		}
+		let videoIcon:IImageProps = {
+			src:'../../public/video_play.png',
+			style:{
+				width:'0.32rem',
+				marginRight:'0.16rem',
+			}
+		}
+		let viewListIcon: IImageProps = {
+			src:'../../public/view_list.png',
+			style:{
+				width:'0.32rem',
+				marginRight:'0.16rem',
 			}
 		}
 		return (
@@ -134,11 +169,11 @@ export class AddId<P, S> extends React.Component<IAddidProps, IState> {
 						</Text>
 					</View>
 					<View ref='buttons' flex='column'>
-						<LabelButton {...videoButton}></LabelButton>
-						<LabelButton {...videoButton}>查看针对组织用户的服务内容</LabelButton>
+						<LabelButton {...videoButton}><Image {...videoIcon}></Image>{videoButton.children}</LabelButton>
+						<LabelButton {...viewListButton}><Image {...viewListIcon}></Image>{viewListButton.children}</LabelButton>
 					</View>
 				</View>
-				<View {...bodyDown}>bodyDown</View>
+				<View {...bodyDown}></View>
 			</View>
 		)
 	}

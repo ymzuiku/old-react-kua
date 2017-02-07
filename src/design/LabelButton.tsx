@@ -7,6 +7,8 @@ export interface ILabelButtonProps extends IButtonProps {
 	downColor:string,
 	normalColor:string,
 	backgroundColor?:string,
+	normalbackgroundColor?: string,
+	enterBackgroundColor?: string,
 	block?:Function,
 }
 interface IState {
@@ -14,15 +16,19 @@ interface IState {
 	backgroundColor: string,
 }
 
+
 export class LabelButton<P, S> extends React.Component<ILabelButtonProps, IState> {
 	css:React.CSSProperties = {}
 	rest:IButtonProps = {}
-	static defaultProps = {};
+	static defaultProps = {
+		normalbackgroundColor: 'rgba(128,128,128,0)',
+		enterBackgroundColor: 'rgba(128,128,128,0)'
+	};
 	constructor(props:ILabelButtonProps){
 		super(props)
 		this.state = {
 			color:this.props.normalColor,
-			backgroundColor: 'rgba(0,0,0,0)'
+			backgroundColor: this.props.normalbackgroundColor
 		}
 		this.init()
 	}
@@ -43,34 +49,36 @@ export class LabelButton<P, S> extends React.Component<ILabelButtonProps, IState
 
 	}
 	combProps = ()=>{
-		const {style, enterColor, downColor, normalColor, pickDown, pickEnter, pickEnd, backgroundColor, ...rest} = this.props
+		const {style, enterColor, downColor, normalColor, pickDown, pickEnter, pickEnd, normalbackgroundColor, enterBackgroundColor, ...rest} = this.props
 		this.css = {
-			color: this.state.color,
-			backgroundColor: this.state.backgroundColor || 'rgba(0,0,0,0)',
-			...style
-		}
-		this.rest = {
-			pickEnter:()=>{
-				console.log('enter')
-				this.setState({
-					color:this.props.enterColor,
-					backgroundColor: this.props.backgroundColor || 'rgba(0,0,0,0)'
-				})
-			},
-			pickDown: ()=>{
-				console.log('down')
-				this.setState({
-					color:this.props.downColor
-				})
-			},
-			pickEnd: ()=>{
-				this.setState({
-					color:this.props.normalColor,
-					backgroundColor: 'rgba(0,0,0,0)'
-				})
-				if(this.props.block) this.props.block()
-			},
-			...rest,
-		}
+				color: this.state.color,
+				backgroundColor: this.state.backgroundColor,
+				padding:'0.16rem',
+				borderRadius:'0.12rem',
+				...style
+			}
+			this.rest = {
+				pickEnter:()=>{
+					this.setState({
+						color:this.props.enterColor,
+						backgroundColor: enterBackgroundColor,
+					})
+				},
+				pickDown: ()=>{
+					this.setState({
+						color:this.props.downColor,
+						backgroundColor: enterBackgroundColor,
+					})
+				},
+				pickEnd: ()=>{
+					this.setState({
+						color:this.props.normalColor,
+						backgroundColor: normalbackgroundColor,
+					})
+					if(this.props.block) this.props.block()
+				},
+				...rest,
+			}
+		
 	}
 }

@@ -1,15 +1,14 @@
 import * as React from 'react'
 import {Layer} from './Layer'
-import {View} from './View'
+import {View, IViewProps} from './View'
 import {tool} from '../tool'
-import {Image} from './Image'
+import {Image, IImageProps} from './Image'
 
-export interface IButtonProps extends React.HTMLProps<HTMLElement> {
+export interface IButtonProps extends IViewProps {
 	ref?:string,
 	pickEnter?: Function,
 	pickDown?: Function,
 	pickEnd?:Function,
-	icon?: string,
 }
 interface IState {}
 
@@ -26,7 +25,7 @@ export class Button<P, S> extends React.Component<IButtonProps, IState> {
 	render(){
 		this.compProps(this.props)
 		return (
-			<View {...this.rest}>{this.icon()}{this.props.children}</View>
+			<View {...this.rest}>{this.props.children}</View>
 		)
 	}
 	componentDidMount(){}
@@ -52,20 +51,13 @@ export class Button<P, S> extends React.Component<IButtonProps, IState> {
 			}
 		}
 		this.css = {
-			cursor: 'pointer'
+			cursor: 'pointer',
 		}
 	}
 	compProps = (props: IButtonProps)=>{
 		const {style, pickDown, pickEnter, pickEnd, ...rest} = props;
 		this.css = {...this.css, ...style}
 		this.rest = {...this.rest, ...rest, style:this.css}
-	}
-	icon(){
-		if(this.props.icon) {
-			return (
-				<Image src={this.props.icon}></Image>
-			)
-		}
 	}
 	handleMouseEnter = ()=>{
 		if(this.props.pickEnter) {
